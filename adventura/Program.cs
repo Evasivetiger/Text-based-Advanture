@@ -71,6 +71,20 @@ namespace adventura
             //ide jön az npc interakcióknak a szövege
         }
     }
+
+    interface npc
+    {
+        string nev;
+        int hp;
+        int dmg; //mennyit sebez
+        void InterakcioText(); //amikor megszólít mit mond
+    }
+
+    class Csoves : npc
+    { 
+        
+    }
+
     class Valtozok
     {
         int money;
