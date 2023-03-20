@@ -10,6 +10,11 @@ namespace adventura
     {
         void FogadoText();
         void InterakcioText();
+
+
+
+
+
     }
 
     class Metro : Helyszin
