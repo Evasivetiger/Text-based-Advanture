@@ -129,11 +129,41 @@ namespace adventura
             get { return taska; }
             set { taska = value; }
         }
-        static void Csere()
-        {
 
+        public bool tele;
+
+        // inventory csere / hozáadás ha van szabad hely bene
+        public void Hozadas(string item)
+        {
+            bool emptySlotFound = false;
+            for (int i = 0; i < taska.Length; i++)
+            {
+                if (taska[i] == null)
+                {
+                    Taska[i] = item;
+                    Console.WriteLine($"elraktad a {item}-t");
+                    emptySlotFound = true;
+                    break;
+                }
+            }
+
+            if (!emptySlotFound)
+            {
+                Console.WriteLine("Kérem adja meg annak a tárgynak a sorszámát, amire cserélni akarja. Ha nem kívánja cserélni, nyomjon 69-et.");
+                int input = Convert.ToInt32(Console.ReadLine());
+
+                if (input >= 0 && input < Taska.Length)
+                {
+                    Taska[input - 1] = item;
+                }
+                else if (input != 69)
+                {
+                    Console.WriteLine("Érvénytelen sorszám.");
+                }
+            }
         }
     }
+
     class Fegyver : Inventory
     {
         string tomo;
@@ -144,6 +174,9 @@ namespace adventura
         string rugosBoko;
         string sparosHell;
     }
+
+
+
     class Program
     {
         static void Main(string[] args)
