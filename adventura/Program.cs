@@ -21,11 +21,11 @@ namespace adventura
     {
         public void FogadoText()
         {
-            //ide jön az a szöveg, amikor belép az emberünk a zónába
+            Console.WriteLine("Aluljáróba vagy nincs nálad semmi good luck");
         }
         public void InterakcioText()
         {
-            //ide jön az npc interakcióknak a szövege
+            Console.WriteLine("");
         }
     }
 
@@ -174,6 +174,10 @@ namespace adventura
         string rugosBoko;
         string sparosHell;
     }
+    class Targy : Inventory
+    {
+        string malboro;
+    }
 
 
 
@@ -186,15 +190,43 @@ namespace adventura
 
             Console.WriteLine("Örsi Adventura");
             Console.WriteLine("Nyomj Entert a kezdéshez!");
-            Console.ReadLine();
-            Console.WriteLine("Válassz karaktert: 1 - Ádám, 2 - Bobi");
 
-            val.Karakter = Console.ReadLine();
-            while (val.Karakter != "1" || val.Karakter != "2")
+
+
+            Console.WriteLine("Az aluljáróba vagy van egy öngyujtod keres valakit és tarhálj egy cigit");
+            Console.WriteLine("Látsz egy 1 csövest egy 2 kisgyereket és egy 3 öltönyös férfit kihez mész oda?");
+            int input = Convert.ToInt32(Console.ReadLine());
+          
+            while (input > 3 | input < 1)
             {
-                Console.WriteLine("Ilyen opció nem volt te paraszt! 1 vagy 2");
-                val.Karakter = Console.ReadLine();
+                Console.WriteLine("ilyen értéket nem tudsz megadni");
+                Console.WriteLine("Látsz egy 1 csövest egy 2 kisgyereket és egy 3 öltönyös férfit kihez mész oda?");
             }
+            if (input == 1)
+            {
+                Console.WriteLine("Oda mentél a csöveshez. Nem tudtad megverni nem vagy hozzá elég erős.");
+
+            }
+            else if (input == 2)
+            {
+                Console.WriteLine("A kisgyerek fain volt kaptál tőle egy szál cigit.");
+
+            }
+            else if (input == 3)
+            {
+                Console.WriteLine("Az öltönyös úriember nem dohányzik. Nincs nála cigi.");
+
+            }
+
+            Console.WriteLine();
+
+
+
+
+
+
+
+        }
         }
     }
 }
